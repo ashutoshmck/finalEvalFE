@@ -1,0 +1,65 @@
+.title {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin-left: 5%;
+  margin-right: 5%;
+}
+.title > button {
+  background-color: transparent;
+  border: none;
+}
+.title > button > p {
+  font-weight: 600;
+  font-size: x-large;
+  color: rgb(113, 59, 255);
+}
+.fields {
+  display: flex;
+  flex-direction: row;
+  margin-bottom: 1rem;
+  margin-left: 5%;
+  margin-right: 5%;
+}
+.field-key {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  width: 20%;
+}
+.records {
+  display: flex;
+  flex-direction: column;
+  margin-left: 5%;
+  margin-right: 5%;
+}
+.record {
+  display: flex;
+  flex-direction: column;
+}
+.record-value {
+  background-color: white;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  margin-bottom: 1%;
+  width: 100%;
+}
+/* .record-value > div {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  width: 100%;
+} */
+.record-value > p {
+  text-align: start;
+  width: 20%;
+}
+.actions {
+  width: 20%;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  margin-right: 5%;
+}

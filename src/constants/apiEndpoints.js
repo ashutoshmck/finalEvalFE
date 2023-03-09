@@ -10,3 +10,12 @@ export const GET_CONTENT_TYPES = {
   url: 'content_types',
   method: 'get',
 };
+
+export const GET_RECORDS_BY_RECORDID_URL = (recordId) => ({
+  url: `collections/${recordId}/records`,
+  method: 'get',
+});
+export const DELETE_RECORD_BY_RECORDID_URL = (collectionId, recordId) => ({
+  url: `collections/${collectionId}/records/${recordId}`,
+  method: 'delete',
+});
