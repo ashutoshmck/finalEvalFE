@@ -13,7 +13,6 @@ const makeRequest = async (apiEndPoint, navigate, dynamicConfig = {}) => {
         Authorization: `Bearer ${localStorage.getItem('token')}`,
       },
     };
-    console.log(requestDetails);
     const { data } = await axios(requestDetails);
     return data;
   } catch (e) {
@@ -35,8 +34,6 @@ const authMakeRequest = async (apiEndPoint, navigate, dynamicConfig = {}) => {
       method: apiEndPoint.method,
       ...dynamicConfig,
     };
-    console.log(...dynamicConfig.headers);
-    console.log(requestDetails);
     const { data } = await axios(requestDetails);
     return data;
   } catch (e) {

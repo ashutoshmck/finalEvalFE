@@ -63,7 +63,6 @@ function RecordsList(props) {
   }, []);
   useEffect(() => {
     getRecords(collectionId).then((data) => {
-      console.log(data);
       setRecords(data);
     });
   }, [collectionId]);

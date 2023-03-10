@@ -45,7 +45,6 @@ function ContentType(props) {
     contentTypes[contentTypes.indexOf(currentContentType)] = currentContentType;
   };
   const addField = async (name) => {
-    console.log(name);
     const newField = await makeRequest.makeRequest(
       ADD_FIELD_TO_CONTENT_TYPE_URL(currentContentType.id),
       navigate,
