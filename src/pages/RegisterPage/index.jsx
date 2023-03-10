@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import bgImage from '../../assets/bg.png';
 import './RegisterPage.css';
 import makeRequest from '../../utils/makeRequest';
-import { LOGIN } from '../../constants/apiEndpoints';
+import { LOGIN, REGISTER } from '../../constants/apiEndpoints';
 import { LOGIN_ROUTE } from '../../constants/routes';
 
 function RegisterPage() {
@@ -11,12 +11,11 @@ function RegisterPage() {
   const navigate = useNavigate();
   const [password, setPassword] = React.useState('');
   const handleSubmit = async () => {
-    const token = await makeRequest.authMakeRequest(
-      LOGIN,
+    await makeRequest.authMakeRequest(
+      REGISTER,
       navigate,
       { data: { username, password } },
     );
-    localStorage.setItem('token', token);
     navigate(LOGIN);
   };
   return (
