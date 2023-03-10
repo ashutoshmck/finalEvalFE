@@ -1,0 +1,13 @@
+.records-page {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  background-color: #edefff;
+  width: 100%;
+  min-height: 100vh;
+}
+.records-page-body {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}

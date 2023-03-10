@@ -21,7 +21,7 @@ function HomePage() {
     <div className="home-page">
       <Components.Sidebar />
       <div className="body">
-        {/* {
+        {
           collectionTypes.length === 0
             ? <div>Loading ....</div>
             : (
@@ -30,19 +30,8 @@ function HomePage() {
                 <Components.ContentType contentTypes={collectionTypes} />
               </>
             )
-        } */}
-        {
-          collectionTypes.length === 0
-            ? <div>Loading ....</div>
-            : (
-              <>
-                <Components.Header title={collectionTypes[0].name} />
-                <Components.RecordsList collectionId={collectionTypes[1].id} />
-              </>
-            )
         }
       </div>
-
     </div>
   );
 }

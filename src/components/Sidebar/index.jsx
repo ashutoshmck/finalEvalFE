@@ -1,7 +1,8 @@
 import React, { useEffect } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { NavLink, useNavigate } from 'react-router-dom';
 import { GET_CONTENT_TYPES } from '../../constants/apiEndpoints';
 import makeRequest from '../../utils/makeRequest';
+import { HOME_ROUTE } from '../../constants/routes';
 import './Sidebar.css';
 
 function Sidebar() {
@@ -27,15 +28,20 @@ function Sidebar() {
         <div className="collection-types">
           {
             collectionTypes.map((collectionType) => (
-              <div key={collectionType.id} className="sidebar-content-item">
-                <p>&#x2022;</p>
-                <p>{collectionType.name}</p>
-              </div>
+              <NavLink to={`/collections/${collectionType.id}/records`} className={({ isActive }) => (isActive ? 'selected-nav-link' : 'deselected-nav-link')}>
+                <div key={collectionType.id} className="sidebar-content-item">
+                  <p>&#x2022;</p>
+                  <p>{collectionType.name}</p>
+                </div>
+              </NavLink>
             ))
+
           }
-        </div>
-        <div className="content-type-builder">
-          <p>Content Type Builder</p>
+          <NavLink to={HOME_ROUTE} className={({ isActive }) => (isActive ? 'selected-nav-link' : 'deselected-nav-link')}>
+            <div className="content-type-builder">
+              <p>Content Type Builder</p>
+            </div>
+          </NavLink>
         </div>
 
       </div>

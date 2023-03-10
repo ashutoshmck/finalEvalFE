@@ -13,6 +13,7 @@ const makeRequest = async (apiEndPoint, navigate, dynamicConfig = {}) => {
       //   authorization: `Bearer ${AUTHORIZATION_TOKEN}`,
       // },
     };
+    console.log(requestDetails);
     const { data } = await axios(requestDetails);
     return data;
   } catch (e) {

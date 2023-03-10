@@ -28,13 +28,14 @@ function ContentType(props) {
           </button>
         </div>
         {contentTypes.map((contentType) => {
+          console.log(Object.keys(contentType.fields).length);
           if (currentContentType.id === contentType.id) {
             return (
               <button type="button">
                 <div className="content-type-item" key={contentType.id}>
                   <div className="content-type-item-name">
                     <p>{contentType.name}</p>
-                    <p>{Object.keys(contentTypes).length}</p>
+                    <p>{Object.keys(contentType.fields).length}</p>
                   </div>
                 </div>
               </button>
@@ -45,7 +46,11 @@ function ContentType(props) {
               <div className="content-type-item-deselected" key={contentType.id}>
                 <div className="content-type-item-name-deselected">
                   <p>{contentType.name}</p>
-                  <p>{Object.keys(contentTypes).length}</p>
+                  <p>
+                    {contentType.fields === null ? 0
+                      : Object.keys(contentType.fields).length}
+
+                  </p>
                 </div>
               </div>
             </button>

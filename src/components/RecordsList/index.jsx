@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 /* eslint-disable guard-for-in */
 /* eslint-disable no-restricted-syntax */
 import React, { useEffect } from 'react';
@@ -5,12 +6,14 @@ import { useNavigate } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import { RiDeleteBin6Line } from 'react-icons/ri';
 import { FiEdit } from 'react-icons/fi';
-import { DELETE_RECORD_BY_RECORDID_URL, GET_RECORDS_BY_RECORDID_URL } from '../../constants/apiEndpoints';
+import { ADD_RECORD_URL, DELETE_RECORD_BY_RECORDID_URL, GET_RECORDS_BY_RECORDID_URL } from '../../constants/apiEndpoints';
 import makeRequest from '../../utils/makeRequest';
 import './RecordsList.css';
+import SideModal from '../SideModal';
 
 function RecordsList(props) {
   const { collectionId } = props;
+  const [isCreateModalOpen, setIsCreateModalOpen] = React.useState(false);
   const [records, setRecords] = React.useState([]);
   const navigate = useNavigate();
   const [fields, setFields] = React.useState([]);
@@ -28,7 +31,15 @@ function RecordsList(props) {
     setFields(list);
     return listOfRecords;
   };
-
+  const handleModalClick = () => {
+    setIsCreateModalOpen(true);
+  };
+  const handleAddRecord = async (record) => {
+    const content = record;
+    const newRecord = await makeRequest
+      .makeRequest(ADD_RECORD_URL(collectionId), navigate, { data: { content } });
+    setRecords([...records, newRecord]);
+  };
   const deleteRecord = async (id) => {
     const listOfRecords = await makeRequest.makeRequest(
       DELETE_RECORD_BY_RECORDID_URL(collectionId, id),
@@ -46,13 +57,24 @@ function RecordsList(props) {
   return (
     <div>
       <div className="title">
-        <h1>13 Entries Found</h1>
-        <button type="button">
+        <h1>
+          {records.length}
+          {' '}
+          Entries Found
+        </h1>
+        <button type="button" onClick={handleModalClick}>
           <p>
             Add a new entry
           </p>
         </button>
       </div>
+      {isCreateModalOpen && (
+        <SideModal
+          setIsOpen={setIsCreateModalOpen}
+          fields={fields.filter((index) => index !== 'ID' && index !== 'Actions')}
+          onSubmit={handleAddRecord}
+        />
+      )}
 
       <div className="fields">
         {fields.length > 4

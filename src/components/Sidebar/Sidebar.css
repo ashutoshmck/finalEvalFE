@@ -33,12 +33,15 @@
   margin-left: 20px;
 }
 .sidebar-content-item {
+  width: 100%;
   display: flex;
   flex-direction: row;
+  justify-content: flex-start;
+  margin-left: 20px;
 }
 .sidebar-content-item > p {
+  text-align: start;
   margin: unset;
-  width: 100%;
   color: white;
   font-size: large;
   margin-top: 10px;
@@ -48,13 +51,33 @@
 .content-type-builder {
   display: flex;
   flex-direction: row;
+  justify-content: flex-start;
   background-color: black;
   width: 100%;
 }
 .content-type-builder > p {
   margin-left: 20px;
-  font-size: larger;
+  font-size: large;
   font-weight: bold;
   text-transform: uppercase;
   color: white;
+}
+.collection-types {
+  width: 100%;
+}
+.collection-types > .deselected-nav-link {
+  display: flex;
+  width: 100%;
+  text-decoration: none;
+}
+.deselected-nav-link > div {
+  background-color: #1d1d1d;
+}
+.selected-nav-link {
+  display: flex;
+  width: 100%;
+  text-decoration: none;
+}
+.selected-nav-link > div {
+  background-color: black;
 }
