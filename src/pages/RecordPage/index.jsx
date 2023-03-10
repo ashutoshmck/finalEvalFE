@@ -6,6 +6,7 @@ import './RecordsPage.css';
 
 function RecordsPage() {
   const { id } = useParams();
+  console.log(id);
   return (
     <div className="records-page">
       <Components.Sidebar />

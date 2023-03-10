@@ -12,7 +12,12 @@ function App() {
       <BrowserRouter>
         <Routes>
           <Route path={HOME_ROUTE} element={<Pages.HomePage />} />
-          <Route path={RECORDS_ROUTE} element={<Pages.RecordsPage />} />
+          <Route
+            path={RECORDS_ROUTE}
+            element={
+              <Pages.RecordsPage />
+            }
+          />
           <Route path={LOGIN_ROUTE} element={<Pages.LoginPage />} />
           <Route path={`${ERROR_ROUTE}/:errorCode?`} element={<Pages.ErrorPage />} />
           <Route path="*" element={<Pages.NotFoundPage />} />

@@ -28,7 +28,6 @@ function ContentType(props) {
           </button>
         </div>
         {contentTypes.map((contentType) => {
-          console.log(Object.keys(contentType.fields).length);
           if (currentContentType.id === contentType.id) {
             return (
               <button type="button">
@@ -60,7 +59,7 @@ function ContentType(props) {
       <div className="content-type-details">
         <h1>{currentContentType.name}</h1>
         <p>
-          {Object.keys(currentContentType).length}
+          {fields.length}
           {' '}
           Fields
         </p>

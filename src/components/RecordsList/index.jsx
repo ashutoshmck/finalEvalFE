@@ -1,8 +1,9 @@
+/* eslint-disable react/no-unused-prop-types */
 /* eslint-disable no-unused-vars */
 /* eslint-disable guard-for-in */
 /* eslint-disable no-restricted-syntax */
 import React, { useEffect } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import { RiDeleteBin6Line } from 'react-icons/ri';
 import { FiEdit } from 'react-icons/fi';
@@ -12,34 +13,41 @@ import './RecordsList.css';
 import SideModal from '../SideModal';
 
 function RecordsList(props) {
-  const { collectionId } = props;
+  const pathId = useParams();
+  const collectionId = pathId.id;
   const [isCreateModalOpen, setIsCreateModalOpen] = React.useState(false);
   const [records, setRecords] = React.useState([]);
   const navigate = useNavigate();
   const [fields, setFields] = React.useState([]);
-  // const fields = [];
-  const getRecords = async () => {
+  const newid = useParams();
+
+  const getRecords = async (id) => {
     const listOfRecords = await makeRequest.makeRequest(
-      GET_RECORDS_BY_RECORDID_URL(collectionId),
+      GET_RECORDS_BY_RECORDID_URL(id),
       navigate,
     );
     const list = ['ID'];
-    for (const key in listOfRecords[0].content) {
-      list.push(key);
+    if (listOfRecords.length !== 0) {
+      for (const key in listOfRecords[0].content) {
+        list.push(key);
+      }
+      list.push('Actions');
     }
-    list.push('Actions');
     setFields(list);
     return listOfRecords;
   };
+
   const handleModalClick = () => {
     setIsCreateModalOpen(true);
   };
+
   const handleAddRecord = async (record) => {
     const content = record;
     const newRecord = await makeRequest
       .makeRequest(ADD_RECORD_URL(collectionId), navigate, { data: { content } });
     setRecords([...records, newRecord]);
   };
+
   const deleteRecord = async (id) => {
     const listOfRecords = await makeRequest.makeRequest(
       DELETE_RECORD_BY_RECORDID_URL(collectionId, id),
@@ -50,10 +58,11 @@ function RecordsList(props) {
   };
 
   useEffect(() => {
-    getRecords().then((data) => {
+    getRecords(collectionId).then((data) => {
+      console.log(data);
       setRecords(data);
     });
-  }, []);
+  }, [collectionId]);
   return (
     <div>
       <div className="title">
