@@ -30,7 +30,7 @@
 .records {
   display: flex;
   flex-direction: column;
-  margin-left: 5%;
+  margin-left: 2%;
   margin-right: 5%;
 }
 .record {
@@ -54,6 +54,7 @@
 } */
 .record-value > p {
   text-align: start;
+  margin-left: 3%;
   width: 20%;
 }
 .actions {
