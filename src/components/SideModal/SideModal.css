@@ -66,6 +66,8 @@
 .modal-actions {
   position: absolute;
   bottom: 2px;
+  height: 10vh !important;
+  top: 90%;
   width: 100%;
   background-color: rgb(255, 255, 255);
   box-shadow: 2px 0px 8px #2c3e50;

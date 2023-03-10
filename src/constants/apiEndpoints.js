@@ -1,8 +1,18 @@
 export const BACKEND_URL = 'http://localhost:8080/';
-export const AUTH_BACKEND_URL = 'http://localhost:5000';
+export const AUTH_BACKEND_URL = 'http://localhost:5000/';
 
 export const LOGIN = {
   url: 'login',
+  method: 'post',
+};
+
+export const REGISTER = {
+  url: 'user',
+  method: 'post',
+};
+
+export const VALIDATE_TOKEN = {
+  url: 'token/validate',
   method: 'post',
 };
 
@@ -22,22 +32,22 @@ export const ADD_CONTENT_TYPE_URL = {
 };
 
 export const ADD_FIELD_TO_CONTENT_TYPE_URL = (contentTypeId) => ({
-  url: `content_types/${contentTypeId}`,
+  url: `content_types/${contentTypeId}/fields`,
   method: 'post',
 });
 
 export const DELETE_FIELD_FROM_CONTENT_TYPE_URL = (contentTypeId) => ({
-  url: `content_types/${contentTypeId}`,
+  url: `content_types/${contentTypeId}/fields`,
   method: 'delete',
 });
 export const UPDATE_FIELD_FROM_CONTENT_TYPE_URL = (contentTypeId) => ({
-  url: `content_types/${contentTypeId}`,
+  url: `content_types/${contentTypeId}/fields`,
   method: 'put',
 });
 
 export const UPDATE_NAME_OF_CONTENT_TYPE_URL = (contentTypeId) => ({
   url: `content_types/${contentTypeId}`,
-  method: 'delete',
+  method: 'patch',
 });
 
 export const ADD_RECORD_URL = (collectionId) => ({

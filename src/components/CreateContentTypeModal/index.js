@@ -1,7 +1,7 @@
 /* eslint-disable no-unused-vars */
 /* eslint-disable jsx-a11y/click-events-have-key-events */
 import React from 'react';
-import './AddFieldModal.css';
+import './CreateContentTypeModal.css';
 import PropTypes from 'prop-types';
 
 export default function CreateContentTypeModal(props) {
@@ -18,7 +18,14 @@ export default function CreateContentTypeModal(props) {
             <h5 className="heading">{title}</h5>
           </div>
           <div className="modal-content">
-            <input type="text" placeholder="Name" defaultValue={nameOfContent} />
+            <input
+              type="text"
+              placeholder="Name"
+              defaultValue={nameOfContent}
+              onChange={(event) => {
+                setName(event.target.value);
+              }}
+            />
             <button
               type="button"
               className="cancel-btn"

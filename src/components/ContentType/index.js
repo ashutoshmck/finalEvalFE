@@ -18,7 +18,7 @@ import {
 } from '../../constants/apiEndpoints';
 
 function ContentType(props) {
-  let { contentTypes } = props;
+  const { contentTypes } = props;
   const [currentContentType, setCurrentContentType] = React.useState(contentTypes[1]);
   const [fields, setFields] = React.useState([]);
   const [isCreatingField, setIsCreatingField] = React.useState(false);
@@ -36,16 +36,13 @@ function ContentType(props) {
 
   const updateNameOfContentType = async (name) => {
     const newContentType = await makeRequest.makeRequest(
-      UPDATE_NAME_OF_CONTENT_TYPE_URL,
+      UPDATE_NAME_OF_CONTENT_TYPE_URL(currentContentType.id),
       navigate,
       { data: { name } },
     );
-    contentTypes = contentTypes.map((contentType) => {
-      if (contentType.name === name) {
-        return newContentType;
-      }
-      return contentType;
-    });
+    currentContentType.name = name;
+    setCurrentContentType(currentContentType);
+    contentTypes[contentTypes.indexOf(currentContentType)] = currentContentType;
   };
   const addField = async (name) => {
     console.log(name);
@@ -54,7 +51,7 @@ function ContentType(props) {
       navigate,
       { data: { name, type: 'Text' } },
     );
-    setFields([...fields, newField]);
+    setFields([...fields, [name, 'Text']]);
   };
   const deleteField = async (name) => {
     const newField = await makeRequest.makeRequest(

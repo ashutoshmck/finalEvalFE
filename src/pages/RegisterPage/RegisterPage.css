@@ -1,0 +1,82 @@
+.login-page {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: row;
+}
+.login-page-bg {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  background-color: #edefff;
+  width: 60%;
+}
+.login-page-bg-img {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+.login-page-text {
+  margin-left: 10%;
+}
+.login-page-text > h1 {
+  font-size: 3.5rem;
+  text-align: start;
+  color: #3e3e3e;
+}
+.login-page-form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: #1d1d1d;
+  width: 40%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.login-page-form h1 {
+  color: #fff;
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+}
+
+.login-page-form-fields {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 70%;
+  margin-bottom: 1rem;
+}
+
+.login-page-form-fields > input {
+  border: none;
+  outline: none;
+  margin-bottom: 1rem;
+  height: 30px;
+  border-radius: 6px;
+  width: 50%;
+}
+.login-page-form-fields > button {
+  border: none;
+  height: 30px;
+  border-radius: 6px;
+  width: 50%;
+  background-color: rgb(113, 59, 255);
+  color: white;
+}
+.login-page-form-title {
+  margin-bottom: 100px;
+}
+.already-user-button {
+  border: none;
+  border-radius: 10px;
+  background-color: transparent;
+}
+.already-user-button > p {
+  color: rgb(113, 59, 255);
+}

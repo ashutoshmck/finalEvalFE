@@ -26,6 +26,7 @@ function RecordsList(props) {
       GET_RECORDS_BY_RECORDID_URL(id),
       navigate,
     );
+
     const list = ['ID'];
     if (listOfRecords.length !== 0) {
       for (const key in listOfRecords[0].content) {
@@ -55,9 +56,14 @@ function RecordsList(props) {
     );
     setRecords(records.filter((record) => record.id !== id));
   };
-
   useEffect(() => {
     getRecords(collectionId).then((data) => {
+      setRecords(data);
+    });
+  }, []);
+  useEffect(() => {
+    getRecords(collectionId).then((data) => {
+      console.log(data);
       setRecords(data);
     });
   }, [collectionId]);

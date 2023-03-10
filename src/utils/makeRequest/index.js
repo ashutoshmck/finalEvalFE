@@ -10,7 +10,7 @@ const makeRequest = async (apiEndPoint, navigate, dynamicConfig = {}) => {
       method: apiEndPoint.method,
       ...dynamicConfig,
       headers: {
-        authorization: `Bearer ${localStorage.getItem('token')}`,
+        Authorization: `Bearer ${localStorage.getItem('token')}`,
       },
     };
     console.log(requestDetails);
@@ -34,11 +34,9 @@ const authMakeRequest = async (apiEndPoint, navigate, dynamicConfig = {}) => {
       url: apiEndPoint.url,
       method: apiEndPoint.method,
       ...dynamicConfig,
-      headers: {
-
-        'Content-Type': 'application/json',
-      },
     };
+    console.log(...dynamicConfig.headers);
+    console.log(requestDetails);
     const { data } = await axios(requestDetails);
     return data;
   } catch (e) {
