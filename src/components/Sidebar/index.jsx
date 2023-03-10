@@ -1,5 +1,6 @@
 import React, { useEffect } from 'react';
 import { NavLink, useNavigate } from 'react-router-dom';
+import { BsCircleFill } from 'react-icons/bs';
 import { GET_CONTENT_TYPES } from '../../constants/apiEndpoints';
 import makeRequest from '../../utils/makeRequest';
 import { HOME_ROUTE } from '../../constants/routes';
@@ -30,7 +31,7 @@ function Sidebar() {
             collectionTypes.map((collectionType) => (
               <NavLink to={`/collections/${collectionType.id}/records`} className={({ isActive }) => (isActive ? 'selected-nav-link' : 'deselected-nav-link')}>
                 <div key={collectionType.id} className="sidebar-content-item">
-                  <p>&#x2022;</p>
+                  <BsCircleFill color="grey" />
                   <p>{collectionType.name}</p>
                 </div>
               </NavLink>

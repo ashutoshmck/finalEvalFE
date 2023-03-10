@@ -145,3 +145,11 @@
   border: none;
   background-color: transparent;
 }
+.content-type-title {
+  display: flex;
+  flex-direction: row;
+}
+.content-type-title > button {
+  background-color: transparent;
+  border: none;
+}

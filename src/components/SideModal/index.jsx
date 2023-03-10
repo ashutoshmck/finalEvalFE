@@ -8,7 +8,6 @@ export default function SideModal(props) {
   const content = {};
   const handleInputChange = (field, value) => {
     content[field] = value;
-    console.log(content);
   };
 
   return (

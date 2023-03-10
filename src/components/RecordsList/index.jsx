@@ -53,13 +53,11 @@ function RecordsList(props) {
       DELETE_RECORD_BY_RECORDID_URL(collectionId, id),
       navigate,
     );
-    console.log(listOfRecords);
     setRecords(records.filter((record) => record.id !== id));
   };
 
   useEffect(() => {
     getRecords(collectionId).then((data) => {
-      console.log(data);
       setRecords(data);
     });
   }, [collectionId]);
