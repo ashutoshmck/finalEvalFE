@@ -55,6 +55,7 @@
 
 .login-page-form-fields > input {
   border: none;
+  outline: none;
   margin-bottom: 1rem;
   height: 30px;
   border-radius: 6px;

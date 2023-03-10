@@ -16,6 +16,7 @@ function LoginPage() {
       navigate,
       { data: { username, password } },
     );
+    console.log(token);
     localStorage.setItem('token', token);
     navigate(HOME_ROUTE);
   };
